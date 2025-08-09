@@ -1,0 +1,52 @@
+/* CSS corrigé pour matching parfait avec le bouton */
+div[data-testid="expanderWidget"] > div:first-child {
+    background: #5059ff !important;  /* Force le même bleu exact */
+    background-color: #5059ff !important;
+    color: white !important;
+    padding: 0.6em 1.8em !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    font-size: 17px !important;
+    border: none !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.041) !important;
+    transition: all 0.2s ease-in-out !important;
+    margin-top: 1em !important;
+    cursor: pointer !important;
+    /* Forcer l'override de tous les backgrounds possibles */
+    background-image: none !important;
+    background-blend-mode: normal !important;
+}
+
+/* Cibler aussi le conteneur parent si nécessaire */
+div[data-testid="expanderWidget"] > div:first-child > div {
+    background: #5059ff !important;
+    background-color: #5059ff !important;
+}
+
+/* Pour les éléments enfants qui pourraient avoir un background */
+div[data-testid="expanderWidget"] > div:first-child * {
+    background: transparent !important;
+}
+
+/* Hover state - même logique */
+div[data-testid="expanderWidget"] > div:first-child:hover {
+    background: #4a52e8 !important;  /* Version légèrement plus sombre au hover */
+    background-color: #4a52e8 !important;
+    transform: scale(1.02) !important;
+    color: #8d1010 !important;
+}
+
+/* Si Streamlit applique des gradients ou overlays */
+div[data-testid="expanderWidget"] > div:first-child::before,
+div[data-testid="expanderWidget"] > div:first-child::after {
+    display: none !important;
+}
+
+/* Alternative plus agressive si nécessaire */
+.streamlit-expanderHeader,
+[data-testid="expanderWidget"] summary {
+    background: #5059ff !important;
+    background-color: #5059ff !important;
+    background-image: none !important;
+    background-blend-mode: normal !important;
+}
